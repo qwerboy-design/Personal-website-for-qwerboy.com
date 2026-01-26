@@ -36,3 +36,8 @@ yarn-error.log*
 
 # Claude Code settings (private configuration)
 .claude/settings.local.json
+
+# Resume files
+M.pdf
+resume_content.txt
+read_pdf.py
