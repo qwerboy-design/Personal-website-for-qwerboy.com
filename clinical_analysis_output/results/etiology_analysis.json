@@ -1,0 +1,87 @@
+{
+  "primary_symptoms": [
+    "Dyspnea"
+  ],
+  "diagnosis_summary": "Negative for malignancy",
+  "key_findings": [
+    "malignant_cells",
+    "respiratory_epithelia"
+  ],
+  "possible_etiologies": [
+    {
+      "etiology": "感染性病因",
+      "conditions": [
+        "細菌性肺炎 (Bacterial pneumonia)",
+        "病毒性肺炎 (Viral pneumonia)",
+        "非典型病原體感染 (Atypical pathogens)",
+        "真菌感染 (Fungal infection)"
+      ],
+      "confidence": "medium",
+      "rationale": "呼吸困難伴隨 BAL 檢查，未發現惡性細胞，常見於感染性病因"
+    },
+    {
+      "etiology": "非感染性炎症",
+      "conditions": [
+        "過敏性肺炎 (Hypersensitivity pneumonitis)",
+        "藥物性肺損傷 (Drug-induced lung injury)",
+        "結締組織疾病相關間質性肺病 (CTD-ILD)",
+        "特發性間質性肺炎 (Idiopathic interstitial pneumonia)"
+      ],
+      "confidence": "medium",
+      "rationale": "BAL 顯示良性呼吸上皮細胞，可能為炎症性病因"
+    },
+    {
+      "etiology": "環境暴露",
+      "conditions": [
+        "職業性肺病 (Occupational lung disease)",
+        "環境過敏原暴露 (Environmental allergen exposure)",
+        "吸入性損傷 (Inhalation injury)"
+      ],
+      "confidence": "low",
+      "rationale": "需要詳細的暴露史評估"
+    },
+    {
+      "etiology": "心血管病因",
+      "conditions": [
+        "心因性肺水腫 (Cardiogenic pulmonary edema)",
+        "左心衰竭 (Left heart failure)",
+        "肺動脈高壓 (Pulmonary hypertension)"
+      ],
+      "confidence": "low",
+      "rationale": "呼吸困難可能為心血管疾病表現，需要心臟功能評估"
+    }
+  ],
+  "recommended_investigations": [
+    {
+      "investigation": "胸部電腦斷層掃描 (CT scan)",
+      "rationale": "評估肺部實質病變、間質性改變、胸腔積液等"
+    },
+    {
+      "investigation": "肺功能檢查 (PFT)",
+      "rationale": "評估通氣功能、擴散功能，協助診斷間質性肺病"
+    },
+    {
+      "investigation": "血液檢查",
+      "rationale": "全血球計數、發炎指標 (CRP, ESR)、自體抗體篩檢"
+    },
+    {
+      "investigation": "BAL 培養與細胞學分析",
+      "rationale": "細菌培養、病毒 PCR、細胞分類計數"
+    },
+    {
+      "investigation": "心臟功能評估",
+      "rationale": "心電圖、心臟超音波，排除心因性病因"
+    },
+    {
+      "investigation": "詳細病史詢問",
+      "rationale": "職業暴露史、藥物史、環境暴露、家族史"
+    }
+  ],
+  "clinical_notes": [
+    "BAL 檢查結果顯示未發現惡性細胞，這是一個重要的排除性發現",
+    "良性呼吸上皮細胞的存在表示標本適宜性良好",
+    "需要結合影像學檢查和臨床表現進行綜合判斷",
+    "如果症狀持續或惡化，建議重複檢查或考慮其他診斷方法",
+    "注意追蹤臨床病程，監測症狀變化"
+  ]
+}

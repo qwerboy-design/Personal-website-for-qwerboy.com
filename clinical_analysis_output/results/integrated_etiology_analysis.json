@@ -1,0 +1,277 @@
+{
+  "primary_findings": {
+    "symptoms": [
+      "Dyspnea"
+    ],
+    "diagnosis": "Negative for malignancy",
+    "aptt_status": "High",
+    "aptt_value": 52.1
+  },
+  "integrated_etiologies": [
+    {
+      "etiology": "血栓栓塞性疾病",
+      "primary_condition": "急性肺栓塞 (Acute Pulmonary Embolism)",
+      "secondary_conditions": [
+        "深層靜脈血栓 (Deep Vein Thrombosis)",
+        "抗凝血治療中 (Anticoagulation therapy)"
+      ],
+      "confidence": "high",
+      "rationale": "呼吸困難、APTT 延長且持續上升，強烈提示正在接受抗凝血治療以治療血栓栓塞",
+      "aptt_interpretation": "APTT 延長是治療的預期結果，需要監測以確保在治療範圍內"
+    },
+    {
+      "etiology": "感染性病因併發凝血異常",
+      "primary_condition": "嚴重肺部感染",
+      "secondary_conditions": [
+        "瀰漫性血管內凝血 (DIC)",
+        "藥物性肝損傷",
+        "感染相關凝血異常"
+      ],
+      "confidence": "medium",
+      "rationale": "需要排除感染導致的 DIC 或肝損傷",
+      "aptt_interpretation": "APTT 延長可能表示凝血系統受到影響"
+    }
+  ],
+  "priority_scenarios": [
+    {
+      "scenario": "急性肺栓塞 (PE) 或深層靜脈血栓 (DVT)",
+      "probability": "high",
+      "supporting_evidence": [
+        "呼吸困難（PE 的典型症狀）",
+        "APTT 延長（可能正在接受抗凝血治療）",
+        "APTT 上升趨勢（治療監測中）",
+        "BAL 陰性（排除其他肺部病因）"
+      ],
+      "pathophysiology": "血栓阻塞肺動脈導致呼吸困難，使用抗凝血劑（如肝素）治療導致 APTT 延長",
+      "confidence": "high"
+    },
+    {
+      "scenario": "肺部感染併發 DIC 或肝損傷",
+      "probability": "medium",
+      "supporting_evidence": [
+        "呼吸困難",
+        "BAL 檢查（可能為感染性病因）",
+        "APTT 延長（可能是 DIC 或肝損傷的表現）"
+      ],
+      "pathophysiology": "嚴重感染可能導致 DIC 或藥物性肝損傷，進而影響凝血功能",
+      "confidence": "medium"
+    },
+    {
+      "scenario": "肝臟疾病導致呼吸困難和凝血異常",
+      "probability": "low",
+      "supporting_evidence": [
+        "APTT 延長（可能為肝臟疾病）",
+        "呼吸困難（可能為肝性腦病或肝肺症候群）"
+      ],
+      "pathophysiology": "肝臟疾病導致凝血因子合成減少和肺部併發症",
+      "confidence": "low"
+    }
+  ],
+  "treatment_recommendations": [
+    {
+      "category": "抗凝血治療管理",
+      "priority": "urgent",
+      "recommendations": [
+        {
+          "action": "確認抗凝血劑使用",
+          "details": [
+            "確認是否正在使用肝素或低分子量肝素 (LMWH)",
+            "檢查藥物記錄和給藥時間",
+            "確認治療適應症（PE/DVT 等）"
+          ]
+        },
+        {
+          "action": "APTT 監測與劑量調整",
+          "details": [
+            "當前 APTT: 52.1 秒（目標範圍通常為參考值的 1.5-2.5 倍，即 45-100 秒）",
+            "如果使用肝素，目標 APTT ratio 通常為 1.5-2.5",
+            "當前 APTT ratio: 1.58（在目標範圍內）",
+            "定期監測 APTT（每 6-12 小時）",
+            "根據 APTT 結果調整肝素劑量",
+            "監測出血徵象（瘀斑、血腫、消化道出血等）"
+          ]
+        },
+        {
+          "action": "過渡到口服抗凝血劑",
+          "details": [
+            "如果診斷確定且臨床穩定，考慮過渡到口服抗凝血劑（DOAC 或 Warfarin）",
+            "DOAC（如 Rivaroxaban, Apixaban）無需常規監測",
+            "如果使用 Warfarin，需要監測 PT/INR（目標 INR 2.0-3.0）",
+            "注意肝素與 Warfarin 的重疊期"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "一般治療原則",
+      "priority": "high",
+      "recommendations": [
+        {
+          "action": "症狀管理",
+          "details": [
+            "氧氣治療（如果血氧飽和度 < 90%）",
+            "支持性呼吸照護",
+            "疼痛管理（如有胸痛）",
+            "臥床休息（急性期）"
+          ]
+        },
+        {
+          "action": "出血風險評估與預防",
+          "details": [
+            "評估出血風險（HAS-BLED 評分等）",
+            "避免創傷性檢查（如有出血風險）",
+            "監測出血徵象",
+            "準備逆轉劑（如使用肝素，準備 Protamine sulfate）"
+          ]
+        },
+        {
+          "action": "併發症預防",
+          "details": [
+            "預防靜脈血栓（如果未使用抗凝血劑）",
+            "監測感染徵象",
+            "維持液體平衡",
+            "營養支持"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "感染治療（如果適用）",
+      "priority": "medium",
+      "recommendations": [
+        {
+          "action": "抗生素治療",
+          "details": [
+            "根據 BAL 培養結果選擇適當抗生素",
+            "考慮覆蓋常見病原體（細菌、非典型病原體）",
+            "評估是否需要抗病毒或抗真菌治療",
+            "監測治療反應和副作用"
+          ]
+        },
+        {
+          "action": "感染控制",
+          "details": [
+            "監測生命徵象",
+            "追蹤發炎指標（CRP, Procalcitonin）",
+            "評估是否需要調整抗凝血劑劑量（考慮藥物交互作用）"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "DIC 治療",
+      "priority": "urgent",
+      "recommendations": [
+        {
+          "action": "治療根本原因",
+          "details": [
+            "治療引起 DIC 的基礎疾病（感染、惡性腫瘤等）",
+            "這是 DIC 治療的關鍵"
+          ]
+        },
+        {
+          "action": "支持性治療",
+          "details": [
+            "血小板輸注（如果血小板 < 50,000 且出血）",
+            "新鮮冷凍血漿（補充凝血因子）",
+            "冷沉澱物（補充纖維蛋白原）",
+            "監測凝血功能"
+          ]
+        },
+        {
+          "action": "抗凝血劑使用",
+          "details": [
+            "通常不建議在急性 DIC 使用治療性抗凝血劑",
+            "但在某些情況下（如大量血栓形成）可能需要",
+            "需要血液科專家會診"
+          ]
+        }
+      ]
+    }
+  ],
+  "investigation_priority": [
+    {
+      "investigation": "確認抗凝血治療狀態",
+      "priority": "urgent",
+      "rationale": "需要立即確認是否正在接受抗凝血治療及治療適應症",
+      "details": [
+        "藥物記錄查詢",
+        "醫療團隊諮詢",
+        "確認治療適應症"
+      ]
+    },
+    {
+      "investigation": "胸部 CT 血管攝影 (CTPA)",
+      "priority": "urgent",
+      "rationale": "診斷或排除肺栓塞（如果尚未確診）",
+      "details": [
+        "評估肺動脈栓塞",
+        "評估肺部實質病變"
+      ]
+    },
+    {
+      "investigation": "D-dimer 檢測",
+      "priority": "high",
+      "rationale": "評估血栓風險（如果未確診 PE）",
+      "details": [
+        "高敏感性檢測",
+        "陰性結果可排除急性 PE（低風險患者）"
+      ]
+    },
+    {
+      "investigation": "完整凝血功能檢查",
+      "priority": "high",
+      "rationale": "全面評估凝血功能，協助診斷 APTT 延長的原因",
+      "details": [
+        "PT/INR（評估外源性凝血途徑）",
+        "血小板計數",
+        "纖維蛋白原 (Fibrinogen)",
+        "凝血因子活性（VIII, IX, XI, XII）",
+        "凝血酶時間 (TT)",
+        "纖維蛋白降解產物 (FDP)"
+      ]
+    },
+    {
+      "investigation": "肝功能檢查",
+      "priority": "high",
+      "rationale": "排除肝臟疾病導致的凝血異常",
+      "details": [
+        "AST, ALT",
+        "Bilirubin",
+        "Albumin",
+        "PT/INR"
+      ]
+    },
+    {
+      "investigation": "心臟功能評估",
+      "priority": "medium",
+      "rationale": "評估心臟功能，排除心因性病因",
+      "details": [
+        "心電圖 (ECG)",
+        "心臟超音波",
+        "BNP/NT-proBNP"
+      ]
+    },
+    {
+      "investigation": "BAL 培養與細胞學分析",
+      "priority": "medium",
+      "rationale": "進一步評估肺部病因",
+      "details": [
+        "細菌培養",
+        "病毒 PCR",
+        "細胞分類計數",
+        "真菌培養"
+      ]
+    },
+    {
+      "investigation": "抗磷脂抗體檢測",
+      "priority": "low",
+      "rationale": "如果懷疑狼瘡抗凝劑或抗磷脂症候群",
+      "details": [
+        "狼瘡抗凝劑 (LA)",
+        "抗心磷脂抗體 (aCL)",
+        "anti-β2GP1"
+      ]
+    }
+  ]
+}

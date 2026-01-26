@@ -1,0 +1,87 @@
+{
+  "symptoms": {
+    "Dyspnea": {
+      "description": "Dyspnea",
+      "icd10_codes": [
+        "R06.0",
+        "J96.0",
+        "J18.9"
+      ],
+      "snomed_codes": [],
+      "related_conditions": [
+        "Respiratory failure",
+        "Pneumonia",
+        "Chronic obstructive pulmonary disease (COPD)",
+        "Asthma",
+        "Pulmonary embolism",
+        "Interstitial lung disease",
+        "Heart failure",
+        "Pleural effusion"
+      ]
+    }
+  },
+  "diagnosis": {
+    "text": "Negative for malignancy",
+    "interpretation": "良性結果",
+    "related_conditions": [
+      "Benign respiratory condition",
+      "Inflammatory process",
+      "Infection",
+      "Reactive changes"
+    ]
+  },
+  "specimen_type": {},
+  "differential_diagnosis": [
+    {
+      "condition": "Pneumonia",
+      "probability": "medium",
+      "supporting_factors": [
+        "Dyspnea",
+        "BAL specimen",
+        "Negative for malignancy"
+      ]
+    },
+    {
+      "condition": "Interstitial lung disease",
+      "probability": "medium",
+      "supporting_factors": [
+        "Dyspnea",
+        "BAL specimen",
+        "Respiratory epithelia"
+      ]
+    },
+    {
+      "condition": "Drug-induced lung injury",
+      "probability": "low",
+      "supporting_factors": [
+        "BAL specimen",
+        "Negative for malignancy"
+      ]
+    },
+    {
+      "condition": "Hypersensitivity pneumonitis",
+      "probability": "medium",
+      "supporting_factors": [
+        "Dyspnea",
+        "BAL specimen"
+      ]
+    },
+    {
+      "condition": "Idiopathic pulmonary fibrosis",
+      "probability": "low",
+      "supporting_factors": [
+        "Dyspnea",
+        "BAL specimen"
+      ]
+    }
+  ],
+  "related_conditions": [],
+  "snomed_info": {
+    "code": "26000-Y-09460",
+    "description": "SNOMED 代碼 26000-Y-09460 (LaminDB 未連接)",
+    "concept_id": null,
+    "related_codes": [],
+    "parent_codes": [],
+    "child_codes": []
+  }
+}

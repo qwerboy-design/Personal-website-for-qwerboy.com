@@ -26,12 +26,19 @@
 
 ```bash
 # 添加遠端 repository
+# 例如：如果您的 GitHub 帳號是 qwerboy，則使用：
+# git remote add origin https://github.com/qwerboy/2026-personal-website.git
 git remote add origin https://github.com/YOUR_USERNAME/2026-personal-website.git
 
 # 推送程式碼
 git branch -M main
 git push -u origin main
 ```
+
+**如何查看您的 GitHub 使用者名稱：**
+- 登入 GitHub 後，點擊右上角的頭像
+- 您的使用者名稱會顯示在個人資料中
+- 或訪問 `https://github.com/settings/profile` 查看
 
 如果遇到認證問題，您可能需要：
 - 使用 Personal Access Token（GitHub Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token）
@@ -115,6 +122,10 @@ YOUR_USERNAME.github.io
 | Type | Name | Target | Proxy status | TTL |
 |------|------|--------|--------------|-----|
 | CNAME | www | YOUR_USERNAME.github.io | Proxied (橘色雲朵) | Auto |
+
+**說明**：`YOUR_USERNAME.github.io` 需要替換為您的實際 GitHub 使用者名稱。
+- 例如：如果您的 GitHub 帳號是 `qwerboy`，則填入 `qwerboy.github.io`
+- 您可以在 GitHub 右上角點擊頭像，查看您的使用者名稱
 
 **重要說明：**
 - **Proxy status** 必須設為 **Proxied**（橘色雲朵圖示），這樣才能使用 Cloudflare 的 CDN 和 SSL

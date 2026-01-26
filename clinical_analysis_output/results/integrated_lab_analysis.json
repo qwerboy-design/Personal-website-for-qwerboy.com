@@ -1,0 +1,92 @@
+{
+  "summary": {
+    "key_findings": [
+      "低血磷 (Hypophosphatemia)",
+      "血氣異常: 代謝性鹼中毒: pH 7.467, HCO3- 28.9 mmol/L, BE-b 5.5 mmol/L, PCO2 39.7 mmHg (正常範圍，無代償)",
+      "進展為混合性異常: 混合性異常：代謝性鹼中毒合併呼吸性酸中毒 - pH 7.429 (接近正常), HCO3- 30.4 mmol/L, BE-b 5.8 mmol/L (代謝性鹼中毒), PCO2 45.5 mmHg (呼吸性酸中毒)"
+    ],
+    "primary_diagnosis": [
+      {
+        "diagnosis": "利尿劑相關的電解質異常",
+        "confidence": "high",
+        "subdiagnoses": [
+          "代謝性鹼中毒（氯流失）",
+          "低血磷",
+          "可能合併容量不足"
+        ]
+      },
+      {
+        "diagnosis": "混合性酸鹼異常（如果 PCO2 升高）",
+        "confidence": "high",
+        "subdiagnoses": [
+          "代謝性鹼中毒",
+          "呼吸性酸中毒（可能為代償不完全或原發性）"
+        ]
+      }
+    ],
+    "severity": "moderate_to_severe"
+  },
+  "hypophosphatemia_metabolic_alkalosis_relationship": {
+    "relationship": "strong_association",
+    "possible_scenarios": [
+      {
+        "scenario": "利尿劑使用",
+        "confidence": "high",
+        "pathophysiology": "Loop diuretics (如 Furosemide) 同時導致氯流失（代謝性鹼中毒）和磷流失（低血磷）",
+        "evidence": [
+          "代謝性鹼中毒（HCO3- 升高，BE 升高）",
+          "低血磷（2.6 mg/dL）",
+          "Na, K 正常（可能在補充中）"
+        ]
+      },
+      {
+        "scenario": "再餵食症候群",
+        "confidence": "medium",
+        "pathophysiology": "長期營養不良後再進食，導致磷移入細胞，同時可能合併代謝性鹼中毒",
+        "evidence": [
+          "低血磷",
+          "代謝性鹼中毒",
+          "可能曾有營養不良病史"
+        ]
+      },
+      {
+        "scenario": "嘔吐相關",
+        "confidence": "medium",
+        "pathophysiology": "嘔吐導致氯離子流失（代謝性鹼中毒），同時可能影響營養狀態導致低血磷",
+        "evidence": [
+          "代謝性鹼中毒（氯流失典型表現）",
+          "低血磷（可能為營養不良或電解質失衡）"
+        ]
+      },
+      {
+        "scenario": "原發性醛固酮增多症或類似疾病",
+        "confidence": "low",
+        "pathophysiology": "過量礦物皮質激素導致代謝性鹼中毒，長期可能影響磷平衡",
+        "evidence": [
+          "代謝性鹼中毒",
+          "K 正常（可能已補充或輕微異常）",
+          "需要進一步檢查"
+        ]
+      }
+    ]
+  },
+  "treatment_priorities": [
+    {
+      "priority": "urgent",
+      "items": [
+        "評估臨床症狀（呼吸困難、肌肉無力、心律不整等）",
+        "評估是否有嚴重低血磷的症狀（橫紋肌溶解、心臟功能異常）",
+        "確認是否正在使用利尿劑或其他導致異常的藥物"
+      ]
+    },
+    {
+      "priority": "high",
+      "items": [
+        "補充磷離子（如果低血磷明顯且症狀性）",
+        "治療代謝性鹼中毒（根據根本原因）",
+        "監測電解質和血氣變化"
+      ]
+    }
+  ],
+  "differential_diagnosis": []
+}

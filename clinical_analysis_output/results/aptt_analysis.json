@@ -1,0 +1,93 @@
+{
+  "is_abnormal": true,
+  "severity": "moderate",
+  "trend": "increasing",
+  "interpretation": "APTT 明顯延長 (52.1 秒，參考範圍: 26.0-40.0 秒)，且持續上升（前次 42.5 秒）",
+  "possible_causes": [
+    {
+      "cause": "抗凝血劑治療",
+      "conditions": [
+        "肝素治療 (Heparin therapy)",
+        "低分子量肝素 (LMWH)",
+        "直接凝血酶抑制劑 (Direct thrombin inhibitors)",
+        "口服抗凝血劑 (如 Warfarin，但通常主要影響 PT)"
+      ],
+      "confidence": "high",
+      "rationale": "APTT 是監測肝素治療的主要指標，APTT 延長是預期的治療反應",
+      "action": "確認是否正在接受抗凝血治療，確認劑量是否適當"
+    },
+    {
+      "cause": "肝臟疾病",
+      "conditions": [
+        "急性或慢性肝炎",
+        "肝硬化",
+        "肝功能衰竭",
+        "藥物性肝損傷"
+      ],
+      "confidence": "medium",
+      "rationale": "肝臟是凝血因子的主要合成場所，肝功能異常可導致多種凝血因子缺乏",
+      "action": "檢查肝功能（AST, ALT, bilirubin, albumin, PT/INR）"
+    },
+    {
+      "cause": "凝血因子缺乏",
+      "conditions": [
+        "血友病 A (因子 VIII 缺乏)",
+        "血友病 B (因子 IX 缺乏)",
+        "因子 XI 缺乏",
+        "因子 XII 缺乏（通常無臨床意義）",
+        "血管性血友病 (vWD)"
+      ],
+      "confidence": "medium",
+      "rationale": "內源性凝血途徑的凝血因子缺乏會導致 APTT 延長",
+      "action": "進行凝血因子活性檢測（VIII, IX, XI, XII）"
+    },
+    {
+      "cause": "瀰漫性血管內凝血 (DIC)",
+      "conditions": [
+        "急性 DIC（消耗性凝血病）",
+        "感染相關 DIC",
+        "惡性腫瘤相關 DIC",
+        "外傷相關 DIC"
+      ],
+      "confidence": "medium",
+      "rationale": "DIC 會消耗凝血因子和血小板，導致 APTT 延長",
+      "action": "檢查血小板計數、D-dimer、纖維蛋白原、PT/INR"
+    },
+    {
+      "cause": "狼瘡抗凝劑 (Lupus Anticoagulant)",
+      "conditions": [
+        "抗磷脂症候群 (APS)",
+        "系統性紅斑狼瘡 (SLE)",
+        "其他自體免疫疾病"
+      ],
+      "confidence": "low",
+      "rationale": "狼瘡抗凝劑會導致體外 APTT 延長，但通常與血栓風險增加相關（而非出血）",
+      "action": "進行抗磷脂抗體檢測（LA, aCL, anti-β2GP1）"
+    },
+    {
+      "cause": "肺栓塞治療監測",
+      "conditions": [
+        "急性肺栓塞 (PE) 治療中",
+        "深層靜脈血栓 (DVT) 治療中"
+      ],
+      "confidence": "high",
+      "rationale": "結合呼吸困難症狀，可能正在接受抗凝血治療以治療或預防血栓",
+      "action": "確認是否有 PE/DVT 診斷，檢查 D-dimer、胸部 CT 血管攝影"
+    }
+  ],
+  "clinical_significance": {
+    "bleeding_risk": "increased",
+    "thrombosis_risk": "depends_on_cause",
+    "monitoring_required": true,
+    "urgency": "medium"
+  },
+  "severity_details": {
+    "excess_seconds": 12.100000000000001,
+    "percentage_increase": 30.250000000000004,
+    "aptt_ratio": 1.58
+  },
+  "trend_details": {
+    "change": 9.600000000000001,
+    "percentage_change": 22.588235294117652
+  }
+}

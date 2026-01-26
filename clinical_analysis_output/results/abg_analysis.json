@@ -1,0 +1,183 @@
+{
+  "abg_1": {
+    "label": "血氣分析 #1",
+    "primary_disorder": "metabolic_alkalosis",
+    "compensation": "appropriate",
+    "interpretation": "代謝性鹼中毒: pH 7.467, HCO3- 28.9 mmol/L, BE-b 5.5 mmol/L, PCO2 39.7 mmHg (正常範圍，無代償)",
+    "abnormal_values": [
+      "pH 偏高: 7.467",
+      "HCO3- 偏高: 28.9 mmol/L",
+      "BE-b 偏高: 5.5 mmol/L"
+    ],
+    "severity": "moderate",
+    "possible_causes": [
+      {
+        "category": "氯離子流失",
+        "causes": [
+          "嘔吐 (Vomiting)",
+          "胃管引流 (Nasogastric suction)",
+          "利尿劑使用 (特別是 Loop diuretics: Furosemide, Bumetanide)",
+          "先天性氯流失 (Congenital chloridorrhea)",
+          "囊性纖維化 (Cystic fibrosis)"
+        ],
+        "confidence": "high",
+        "pathophysiology": "氯離子流失導致低氯血症，腎臟重吸收 HCO3- 以維持電中性"
+      },
+      {
+        "category": "低鉀血症相關",
+        "causes": [
+          "雖然目前 K 正常 (3.9 mmol/L)，但可能曾有低血鉀病史",
+          "長期使用利尿劑",
+          "原發性醛固酮增多症 (Primary aldosteronism)",
+          "庫欣症候群 (Cushing syndrome)",
+          "Bartter/Gitelman 症候群"
+        ],
+        "confidence": "medium",
+        "pathophysiology": "低血鉀促使 H+ 進入細胞，K+ 移出，同時腎臟 H+ 分泌增加，HCO3- 重吸收增加"
+      },
+      {
+        "category": "容量不足",
+        "causes": [
+          "脫水 (Dehydration)",
+          "嘔吐或腹瀉",
+          "利尿劑使用",
+          "心因性或肝因性水腫使用利尿劑"
+        ],
+        "confidence": "high",
+        "pathophysiology": "容量不足導致近端腎小管重吸收 Na+ 和 HCO3- 增加（容量收縮性鹼中毒）"
+      },
+      {
+        "category": "過量鹼性物質",
+        "causes": [
+          "過量輸注碳酸氫鈉 (Sodium bicarbonate infusion)",
+          "大量輸血 (含檸檬酸，代謝後產生 HCO3-)",
+          "牛奶鹼性症候群 (Milk-alkali syndrome)",
+          "過量攝取制酸劑"
+        ],
+        "confidence": "medium",
+        "pathophysiology": "直接增加體內的鹼性物質"
+      },
+      {
+        "category": "礦物皮質激素過量",
+        "causes": [
+          "原發性醛固酮增多症",
+          "庫欣症候群",
+          "外源性糖皮質激素",
+          "腎動脈狹窄",
+          "Liddle 症候群"
+        ],
+        "confidence": "medium",
+        "pathophysiology": "增加遠端腎小管的 Na+ 重吸收和 K+/H+ 分泌"
+      },
+      {
+        "category": "低血磷相關",
+        "causes": [
+          "與低血磷 (2.6 mg/dL) 相關的鹼中毒",
+          "長期營養不良",
+          "再餵食症候群 (Refeeding syndrome)",
+          "嚴重燒傷",
+          "呼吸性鹼中毒導致的磷移入細胞"
+        ],
+        "confidence": "medium",
+        "pathophysiology": "低血磷可能與代謝性鹼中毒共同發生，特別是在再餵食症候群或嚴重疾病狀態"
+      }
+    ]
+  },
+  "abg_2": {
+    "label": "血氣分析 #2",
+    "primary_disorder": "mixed_metabolic_alkalosis_respiratory_acidosis",
+    "compensation": null,
+    "interpretation": "混合性異常：代謝性鹼中毒合併呼吸性酸中毒 - pH 7.429 (接近正常), HCO3- 30.4 mmol/L, BE-b 5.8 mmol/L (代謝性鹼中毒), PCO2 45.5 mmHg (呼吸性酸中毒)",
+    "abnormal_values": [
+      "PCO2 偏高: 45.5 mmHg",
+      "HCO3- 偏高: 30.4 mmol/L",
+      "BE-b 偏高: 5.8 mmol/L"
+    ],
+    "severity": "moderate",
+    "possible_causes": [
+      {
+        "category": "氯離子流失",
+        "causes": [
+          "嘔吐 (Vomiting)",
+          "胃管引流 (Nasogastric suction)",
+          "利尿劑使用 (特別是 Loop diuretics: Furosemide, Bumetanide)",
+          "先天性氯流失 (Congenital chloridorrhea)",
+          "囊性纖維化 (Cystic fibrosis)"
+        ],
+        "confidence": "high",
+        "pathophysiology": "氯離子流失導致低氯血症，腎臟重吸收 HCO3- 以維持電中性"
+      },
+      {
+        "category": "低鉀血症相關",
+        "causes": [
+          "雖然目前 K 正常 (3.9 mmol/L)，但可能曾有低血鉀病史",
+          "長期使用利尿劑",
+          "原發性醛固酮增多症 (Primary aldosteronism)",
+          "庫欣症候群 (Cushing syndrome)",
+          "Bartter/Gitelman 症候群"
+        ],
+        "confidence": "medium",
+        "pathophysiology": "低血鉀促使 H+ 進入細胞，K+ 移出，同時腎臟 H+ 分泌增加，HCO3- 重吸收增加"
+      },
+      {
+        "category": "容量不足",
+        "causes": [
+          "脫水 (Dehydration)",
+          "嘔吐或腹瀉",
+          "利尿劑使用",
+          "心因性或肝因性水腫使用利尿劑"
+        ],
+        "confidence": "high",
+        "pathophysiology": "容量不足導致近端腎小管重吸收 Na+ 和 HCO3- 增加（容量收縮性鹼中毒）"
+      },
+      {
+        "category": "過量鹼性物質",
+        "causes": [
+          "過量輸注碳酸氫鈉 (Sodium bicarbonate infusion)",
+          "大量輸血 (含檸檬酸，代謝後產生 HCO3-)",
+          "牛奶鹼性症候群 (Milk-alkali syndrome)",
+          "過量攝取制酸劑"
+        ],
+        "confidence": "medium",
+        "pathophysiology": "直接增加體內的鹼性物質"
+      },
+      {
+        "category": "礦物皮質激素過量",
+        "causes": [
+          "原發性醛固酮增多症",
+          "庫欣症候群",
+          "外源性糖皮質激素",
+          "腎動脈狹窄",
+          "Liddle 症候群"
+        ],
+        "confidence": "medium",
+        "pathophysiology": "增加遠端腎小管的 Na+ 重吸收和 K+/H+ 分泌"
+      },
+      {
+        "category": "低血磷相關",
+        "causes": [
+          "與低血磷 (2.6 mg/dL) 相關的鹼中毒",
+          "長期營養不良",
+          "再餵食症候群 (Refeeding syndrome)",
+          "嚴重燒傷",
+          "呼吸性鹼中毒導致的磷移入細胞"
+        ],
+        "confidence": "medium",
+        "pathophysiology": "低血磷可能與代謝性鹼中毒共同發生，特別是在再餵食症候群或嚴重疾病狀態"
+      },
+      {
+        "category": "呼吸功能不全",
+        "causes": [
+          "慢性阻塞性肺病 (COPD)",
+          "呼吸肌疲勞",
+          "胸廓異常",
+          "神經肌肉疾病",
+          "藥物引起的呼吸抑制",
+          "肥胖相關換氣不足 (OHS)"
+        ],
+        "confidence": "high",
+        "pathophysiology": "通氣不足導致 CO2 滯留"
+      }
+    ]
+  }
+}

@@ -78,28 +78,28 @@
         <div class="bento-card identity-card" data-tilt id="open-analyst-modal" style="cursor: pointer;">
             <div class="card-content identity-content">
                 <h3>資深系統分析師</h3>
-                <p>AI & API 開發<br>醫療影像分析<br>系統架構設計<br>技術團隊領導</p>
+                <p>醫療 AI 整合專家<br>HIS/LIS 系統架構<br>API 規格設計<br>60+ 專案管理經驗</p>
             </div>
             <div style="position:absolute; right:10px; bottom:10px; font-size:4rem; opacity:0.2;"><i
                     class="fas fa-laptop-code"></i></div>
         </div>
 
         <!-- Row 2 (continues Hero) + About (2x1) -->
-        <a href="https://coffee.qwerboy.com" target="_blank" class="bento-card newsletter-card" data-tilt
-            data-tilt-glare data-tilt-max-glare="0.2">
+        <div id="open-projects-modal" class="bento-card newsletter-card" data-tilt data-tilt-glare
+            data-tilt-max-glare="0.2" style="cursor: pointer;">
             <div class="card-content newsletter-content">
                 <div class="newsletter-icon">
-                    <i class="fas fa-mug-hot" style="font-size: 2rem; color: #FF6719;"></i>
+                    <i class="fas fa-rocket" style="font-size: 2rem; color: #FF6719;"></i>
                 </div>
-                <h3>Mike's Coffee</h3>
-                <p>Full-stack coffee ordering system side project.</p>
+                <h3>Side Projects</h3>
+                <p>Innovative creations and experimental tools.</p>
                 <div class="magnetic-btn-container">
                     <div class="magnetic-btn">
-                        <span>Order Now</span>
+                        <span>View All</span>
                     </div>
                 </div>
             </div>
-        </a>
+        </div>
 
         <div class="bento-card about-card" data-tilt id="open-resume-modal" style="cursor: pointer;">
             <div class="card-content about-content">
@@ -107,7 +107,8 @@
                     <i class="fas fa-file-alt" style="font-size: 2rem; color: #3b82f6;"></i>
                 </div>
                 <p>A passionate <b><u>Traveler & Developer</u></b><br /><br />
-                    16+ years of experience in AI, API, and Web Development. Click to see my Resume.</p>
+                    18+ years of experience in Medical AI, HIS/LIS Architecture, and Full-Stack Development. Click to
+                    see my Resume.</p>
             </div>
         </div>
 
@@ -148,15 +149,16 @@
                     <i class="fas fa-code trait-icon"></i>
                 </div>
             </div>
-            <div class="bento-card trait-card" data-tilt id="open-coffee-trait-modal" style="cursor: pointer;">
+            <a href="https://coffee.qwerboy.com" target="_blank" class="bento-card trait-card" data-tilt
+                style="text-decoration: none;">
                 <div class="card-content trait-content">
                     <div class="trait-text">
-                        <h3>Coffee Enthusiast</h3>
-                        <p>Brewing the perfect cup every day.</p>
+                        <h3>Coffee ordering system</h3>
+                        <p>Full-stack system for coffee lovers.</p>
                     </div>
-                    <i class="fas fa-coffee trait-icon"></i>
+                    <i class="fas fa-mug-hot trait-icon"></i>
                 </div>
-            </div>
+            </a>
         </div>
 
         <!-- Row 5: Venture Cards (3 equal cards) -->
@@ -238,27 +240,42 @@
             <button class="modal-close" id="resume-modal-close"><i class="fas fa-times"></i></button>
             <div class="resume-modal-body">
                 <h2>Resume / Experience</h2>
-                <p class="resume-subtitle">劉祥弘 (Mike Liu) - Senior Engineer</p>
+                <p class="resume-subtitle">劉祥弘 (Mike Liu) - Senior System Analyst</p>
                 <div class="about-intro">
-                    <p>Hi, I'm Mike Liu (劉祥弘). A technology enthusiast and avid traveler.</p>
+                    <p>Hi, I'm Mike Liu (劉祥弘). A technology enthusiast with 18+ years of experience in Medical
+                        Information Systems and AI integration.</p>
                 </div>
                 <div class="resume-timeline">
                     <div class="resume-item">
-                        <div class="resume-year">2019/10 ~ Present</div>
+                        <div class="resume-year">2021/7 ~ Present</div>
                         <div class="resume-desc">
-                            <strong>Senior AI & API Developer</strong><br>
-                            Specializing in Medical AI (low-dose CT analysis for ICH/IPF) and API architecture design.
-                            Experienced in leading technical teams and optimizing system performance.
+                            <strong>Senior System Analyst @ MacKay Memorial Hospital</strong><br>
+                            • Led HIS Web transformation (200% performance boost)<br>
+                            • Developed AI solutions for medical imaging (ICH/IPF detection)<br>
+                            • Built 60+ projects including: Smart Auto-Sorting System, Mobile Blood Collection APP, NGS
+                            System<br>
+                            • Managed ISO27001:2022 certification for Smart Hospital 2025<br>
+                            • Technologies: .NET Core, MS SQL, React, Python, AI/ML
                         </div>
                     </div>
 
                     <div class="resume-item">
-                        <div class="resume-year">2006 ~ 2019</div>
+                        <div class="resume-year">2019/10 ~ 2021/7</div>
                         <div class="resume-desc">
-                            <strong>Software Engineer (Various Roles)</strong><br>
-                            Over 13 years of diverse experience in the tech industry, ranging from financial systems to
-                            web applications.
-                            Built a strong foundation in backend logic and database management.
+                            <strong>System Analyst @ Microsoft Corporation (Taiwan)</strong><br>
+                            • MacKay Memorial Hospital HIS Transformation Project<br>
+                            • Designed API architecture for Lab, Blood, and Emergency systems<br>
+                            • Cross-department collaboration for system integration
+                        </div>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-year">2008/4 ~ 2019/3</div>
+                        <div class="resume-desc">
+                            <strong>R&D Project Manager @ Healthcare IT Company</strong><br>
+                            • 11 years managing international HIS projects (Taiwan, Malaysia, Singapore)<br>
+                            • Specialized in scheduling, reporting, and EMR systems<br>
+                            • Led cross-functional teams for large-scale deployments
                         </div>
                     </div>
 
@@ -266,7 +283,7 @@
                         <div class="resume-year">Education</div>
                         <div class="resume-desc">
                             <strong>National Taichung University of Science and Technology</strong><br>
-                            Focus on Information Technology and Computer Science.
+                            Bachelor's Degree in Information Technology (2000-2004)
                         </div>
                     </div>
                 </div>
@@ -282,26 +299,39 @@
             <div class="coffee-modal-body">
                 <h2>資深系統分析師</h2>
                 <div class="coffee-intro">
-                    <p>16+ 年軟體開發經驗,專注於 AI 技術與 API 架構設計,致力於將創新技術應用於實際場景。</p>
+                    <p>18+ 年醫療資訊系統開發經驗，專注於 HIS/LIS 架構設計與 AI 技術整合，累積管理 60+ 大型專案。</p>
                 </div>
 
                 <div class="coffee-list">
                     <h3>核心技能</h3>
                     <ul>
-                        <li><strong>醫療 AI 開發</strong>: 低劑量 CT 影像分析 (ICH/IPF 檢測)</li>
-                        <li><strong>API 架構設計</strong>: RESTful API、GraphQL、微服務架構</li>
-                        <li><strong>系統優化</strong>: 效能調校、資料庫設計、系統整合</li>
-                        <li><strong>技術領導</strong>: 團隊管理、技術決策、專案規劃</li>
+                        <li><strong>醫療 AI 開發</strong>: 低劑量 CT 影像分析 (ICH/IPF 檢測)、超音波 AI 整合</li>
+                        <li><strong>HIS/LIS 系統架構</strong>: 門診、急診、檢驗科系統設計，Web API 整合</li>
+                        <li><strong>API 規格設計</strong>: RESTful API、多儀器串接、系統整合平台</li>
+                        <li><strong>專案管理</strong>: 60+ 專案管理經驗、ISO27001:2022 認證、團隊領導</li>
+                        <li><strong>系統優化</strong>: HIS Web 化轉型（效能提升 200%）、智能分檢系統（減少工作量 80%）</li>
                     </ul>
                 </div>
 
                 <div class="coffee-list">
                     <h3>技術棧</h3>
                     <ul>
-                        <li><strong>後端開發</strong>: Python, Node.js, Go</li>
-                        <li><strong>前端技術</strong>: React, Vue, Angular</li>
-                        <li><strong>資料庫</strong>: PostgreSQL, MongoDB, Redis</li>
-                        <li><strong>雲端平台</strong>: AWS, GCP, Docker, Kubernetes</li>
+                        <li><strong>後端開發</strong>: .NET Core, C#, Python, Node.js, MS SQL Server</li>
+                        <li><strong>前端技術</strong>: React, Vue.js, Next.js, JavaScript, HTML/CSS</li>
+                        <li><strong>資料庫</strong>: MS SQL, PostgreSQL, MongoDB, Redis</li>
+                        <li><strong>雲端 & DevOps</strong>: AWS, GCP, Docker, Kubernetes, Azure DevOps, IIS</li>
+                        <li><strong>AI & 自動化</strong>: Gemini API, MCP, N8N, Python ML/AI</li>
+                    </ul>
+                </div>
+
+                <div class="coffee-list">
+                    <h3>重要專案成就</h3>
+                    <ul>
+                        <li><strong>AI 醫療影像分析</strong>: ICH/IPF 檢測系統，提升診斷效能 10 倍、準確度 50%</li>
+                        <li><strong>智能自動分檢系統</strong>: 減少人員工作量 80%，提升正確性 50%</li>
+                        <li><strong>行動採血 APP</strong>: 成功減少錯誤問題 95%，提升院內作業效率</li>
+                        <li><strong>NGS 次世代定序系統</strong>: 協助多項檢驗，產能提升 200%</li>
+                        <li><strong>COVID-19 採檢管理</strong>: 工作量提升 2 倍期間的系統支援</li>
                     </ul>
                 </div>
             </div>
@@ -321,9 +351,11 @@
                     <div class="developer-item">
                         <div class="developer-year">Backend</div>
                         <div class="developer-desc">
-                            Proficient in <strong>Python</strong>, <strong>Node.js</strong>, and
-                            <strong>Go</strong>. Experienced with RESTful APIs, GraphQL, and database
-                            design (PostgreSQL, MongoDB).
+                            Proficient in <strong>.NET Core</strong>, <strong>C#</strong>, <strong>Python</strong>, and
+                            <strong>Node.js</strong>.
+                            Experienced with RESTful APIs, WebAPI architecture, and database design (MS SQL Server,
+                            PostgreSQL, MongoDB).
+                            Specialized in HIS/LIS system integration and medical device API connectivity.
                         </div>
                     </div>
 
@@ -331,19 +363,84 @@
                         <div class="developer-year">Frontend</div>
                         <div class="developer-desc">
                             Skilled in modern JavaScript frameworks like <strong>React</strong>,
-                            <strong>Vue</strong>, and <strong>Angular</strong>. Passionate about
-                            creating responsive and intuitive user interfaces.
+                            <strong>Vue.js</strong>, and <strong>Next.js</strong>.
+                            Experienced in building responsive web applications with HTML, CSS/Sass, and JavaScript.
+                            Passionate about creating intuitive user interfaces for complex medical systems.
                         </div>
                     </div>
 
                     <div class="developer-item">
-                        <div class="developer-year">DevOps</div>
+                        <div class="developer-year">DevOps & Cloud</div>
                         <div class="developer-desc">
-                            Familiar with <strong>Docker</strong>, <strong>Kubernetes</strong>, and
-                            cloud platforms like AWS and GCP. Ensuring smooth deployment and high
-                            availability.
+                            Familiar with <strong>Docker</strong>, <strong>Kubernetes</strong>, <strong>Azure
+                                DevOps</strong>, and
+                            cloud platforms like AWS and GCP. Experience with IIS, Windows Server 2022, and CI/CD
+                            pipelines.
+                            Ensuring smooth deployment and high availability for critical healthcare systems.
                         </div>
                     </div>
+
+                    <div class="developer-item">
+                        <div class="developer-year">Side Projects</div>
+                        <div class="developer-desc">
+                            • <strong>Mike's Coffee</strong>: Full-stack ordering platform built with Next.js and N8N
+                            automation<br>
+                            • <strong>AI Travel Assistant</strong>: RWD app using React, GAS, and Gemini API
+                            integration<br>
+                            • Active exploration of AI agents, MCP, and workflow automation tools
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Modal -->
+    <div class="coffee-modal" id="projects-modal">
+        <div class="modal-overlay" id="projects-modal-overlay"></div>
+        <div class="modal-content coffee-modal-content">
+            <button class="modal-close" id="projects-modal-close"><i class="fas fa-times"></i></button>
+            <div class="coffee-modal-body">
+                <h2>Side Projects</h2>
+                <div class="coffee-intro">
+                    <p>探索我的個人專案與實驗性工具，涵蓋 AI 應用與全端開發。</p>
+                </div>
+
+                <div class="coffee-list">
+                    <h3>精選專案</h3>
+                    <ul class="project-links-list">
+                        <li>
+                            <a href="https://hca.qwerboy.com" target="_blank" class="project-link-item">
+                                <div class="project-link-icon"><i class="fas fa-user-md"></i></div>
+                                <div class="project-link-info">
+                                    <strong>臨床AI助手</strong>
+                                    <span>智慧醫療臨床輔助系統</span>
+                                </div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://coffee.qwerboy.com" target="_blank" class="project-link-item">
+                                <div class="project-link-icon"><i class="fas fa-mug-hot"></i></div>
+                                <div class="project-link-info">
+                                    <strong>咖啡下單系統</strong>
+                                    <span>全端咖啡訂購管理平台</span>
+                                </div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://qwerboy-design.github.io/gemini-fintech-pro/" target="_blank"
+                                class="project-link-item">
+                                <div class="project-link-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="project-link-info">
+                                    <strong>股市AI分析</strong>
+                                    <span>基於 Gemini 的智慧金融分析工具</span>
+                                </div>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

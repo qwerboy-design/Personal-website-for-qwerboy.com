@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModal('open-resume-modal', 'resume-modal');
     setupModal('open-developer-modal', 'developer-modal');
     setupModal('open-traveler-modal', 'traveler-modal');
+    setupModal('open-projects-modal', 'projects-modal');
     setupModal('open-video-modal', 'video-modal');
 
 });

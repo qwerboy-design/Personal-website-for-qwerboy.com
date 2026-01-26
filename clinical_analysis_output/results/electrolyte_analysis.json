@@ -1,0 +1,42 @@
+{
+  "abnormalities": [
+    {
+      "electrolyte": "Phosphorus (P)",
+      "value": 2.6,
+      "status": "low",
+      "severity": "mild",
+      "interpretation": "低血磷 (Hypophosphatemia): 2.6 mg/dL (參考值: 2.7-4.5 mg/dL)"
+    }
+  ],
+  "hypophosphatemia_analysis": {
+    "present": true,
+    "severity": "mild",
+    "current_value": 2.6,
+    "reference_min": 2.7,
+    "deficit": 0.10000000000000009,
+    "trend": "decreasing",
+    "previous_value": 3.0,
+    "previous_date": "2025/11/22"
+  },
+  "trend_analysis": {
+    "Na": {
+      "status": "normal",
+      "current": 137,
+      "previous": 138,
+      "change": -1
+    },
+    "K": {
+      "status": "normal",
+      "current": 3.9,
+      "previous": 3.8,
+      "change": 0.10000000000000009
+    },
+    "iCa": {
+      "status": "normal",
+      "current": 4.92,
+      "previous": 4.75,
+      "change": 0.16999999999999993
+    }
+  },
+  "clinical_significance": {}
+}

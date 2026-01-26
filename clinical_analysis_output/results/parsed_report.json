@@ -1,0 +1,15 @@
+{
+  "snomed_code": "26000-Y-09460",
+  "clinical_history": [
+    "Dyspnea"
+  ],
+  "specimen_type": "Broncho-alveolar lavage cytology",
+  "specimen_adequacy": "Optimal for interpretation",
+  "diagnosis": "Negative for malignancy",
+  "diagnosis_date": "19/11/2025",
+  "microscopic_description": "Smears show several bland respiratory epithelia.\nNo malignant cell is found.",
+  "findings": [
+    "malignant_cells",
+    "respiratory_epithelia"
+  ]
+}
