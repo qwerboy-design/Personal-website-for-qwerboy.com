@@ -26,12 +26,12 @@
     :is(a, button):focus-visible { outline: 3px solid white; outline-offset: 5px; }
     .hint { margin-top: 15px; font-size: 12px; color: #e0e6f5; }
     footer { text-align: center; font-size: 11px; color: #e0e6f5; letter-spacing: .04em; padding-bottom: 6px; }
-    .boot-overlay { display: none; position: fixed; inset: 0; z-index: 100; place-items: center; overflow: hidden; background: #000; }
-    .boot-overlay video, .boot-overlay .boot-fallback { width: 100%; height: 100%; object-fit: cover; }
+    .boot-overlay { display: none; position: fixed; inset: 0; z-index: 100; place-items: center; overflow: hidden; background: #000 url('/assets/images/macos-boot-poster.jpg') center / cover no-repeat; }
+    .boot-overlay video, .boot-overlay .boot-fallback { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     /* Match the poster to the video's cover crop so the glow follows the logo on every screen. */
     .boot-overlay::after { content: ""; position: absolute; inset: 0; background: url('/assets/images/macos-boot-poster.jpg') center / cover no-repeat; filter: blur(12px); mix-blend-mode: screen; opacity: .65; pointer-events: none; animation: boot-logo-glow 3.2s ease-in-out infinite; }
     @keyframes boot-logo-glow { 0%, 100% { opacity: .45; } 50% { opacity: .95; } }
-    .boot-fallback[hidden] { display: none; }
+    .boot-overlay video[hidden], .boot-fallback[hidden] { display: none; }
     .boot-overlay button { position: absolute; z-index: 1; right: 28px; bottom: 28px; border: 1px solid #ffffff55; background: #ffffff22; backdrop-filter: blur(14px); color: white; }
     body.boot-enabled .boot-overlay { display: grid; }
     body.boot-finished .boot-overlay { display: grid; opacity: 0; pointer-events: none; transition: opacity .6s ease; }
@@ -42,6 +42,7 @@
 <body>
   <div class="boot-overlay" id="boot-overlay" aria-hidden="true">
     <video id="boot-video" autoplay muted playsinline preload="metadata" poster="/assets/images/macos-boot-poster.jpg" aria-hidden="true">
+      <source src="/assets/animations/macos-boot-4k.mp4" type="video/mp4">
       <source src="/assets/animations/macos-boot-4k.webm" type="video/webm">
     </video>
     <img class="boot-fallback" id="boot-gif-fallback" data-src="/assets/animations/macos-boot-4k.gif" alt="" hidden>
@@ -91,6 +92,7 @@
     const skipBoot = document.getElementById('skip-boot');
     const bootDuration = 5000;
     let bootFinished = false;
+    let fallbackStarted = false;
     let bootSeen = false;
     try {
       bootSeen = sessionStorage.getItem('qweros-boot-seen') === '1';
@@ -109,12 +111,28 @@
       try { sessionStorage.setItem('qweros-boot-seen', '1'); } catch {}
     };
     const showGifFallback = () => {
+      if (bootFinished || fallbackStarted) return;
+      fallbackStarted = true;
+      bootVideo.pause();
       bootVideo.hidden = true;
       bootGifFallback.src = bootGifFallback.dataset.src;
-      bootGifFallback.hidden = false;
     };
+    bootVideo.addEventListener('error', showGifFallback);
+    // Source failures do not bubble to the video when every URL is unavailable.
+    const videoSources = Array.from(bootVideo.querySelectorAll('source'));
+    let failedSources = [];
+    videoSources.forEach(source => source.addEventListener('error', () => {
+      if (!failedSources.includes(source)) failedSources = [...failedSources, source];
+      if (failedSources.length === videoSources.length) showGifFallback();
+    }));
+    bootGifFallback.addEventListener('load', () => {
+      if (!bootFinished && fallbackStarted) bootGifFallback.hidden = false;
+    });
+    bootGifFallback.addEventListener('error', () => {
+      bootGifFallback.hidden = true;
+    });
     const startBootVideo = () => {
-      if (!bootVideo.canPlayType('video/webm')) {
+      if (!bootVideo.canPlayType('video/mp4') && !bootVideo.canPlayType('video/webm')) {
         showGifFallback();
         return;
       }
