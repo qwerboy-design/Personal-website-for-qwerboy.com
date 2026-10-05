@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Mike Liu · qwerOS Login Preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #091633 url('/assets/images/wallpaper-login.png') center / cover fixed; color: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .screen { position: relative; min-height: 100svh; display: flex; flex-direction: column; align-items: center; background: linear-gradient(180deg, rgba(4,12,30,.08), rgba(4,12,30,.24)); padding: 24px; }
+    header { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 13px; letter-spacing: .04em; }
+    .brand { font-weight: 600; opacity: .9; }
+    .languages { display: flex; gap: 4px; padding: 4px; border: 1px solid #ffffff25; background: #12203935; border-radius: 24px; backdrop-filter: blur(20px); }
+    button { color: white; border: 0; background: transparent; font: inherit; padding: 8px 12px; border-radius: 20px; cursor: pointer; min-height: 36px; }
+    button[aria-pressed="true"] { background: #ffffff25; }
+    .clock { margin-top: clamp(30px, 8vh, 100px); text-align: center; text-shadow: 0 3px 24px #07182b35; }
+    .date { font-size: clamp(17px, 2vw, 24px); font-weight: 500; }
+    .time { display: block; font-size: clamp(72px, 9vw, 128px); font-weight: 650; line-height: 1.1; letter-spacing: -.055em; margin-top: 10px; }
+    .profile { margin: auto 0; padding: 44px 0 70px; text-align: center; }
+    .avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; object-position: center 28%; border: 2px solid #ffffff8c; box-shadow: 0 8px 40px #00000030; }
+    h1 { margin: 20px 0 8px; font-size: 24px; font-weight: 600; letter-spacing: -.02em; }
+    .role { margin: 0; font-size: 13px; color: #e4e9f8; letter-spacing: .07em; }
+    .login { display: inline-flex; align-items: center; justify-content: center; gap: 28px; min-width: 176px; min-height: 48px; margin-top: 28px; padding: 12px 20px; border: 1px solid #ffffff60; border-radius: 30px; background: #ffffff24; backdrop-filter: blur(24px); box-shadow: 0 6px 24px #00000014; color: white; font-size: 15px; font-weight: 500; text-decoration: none; transition: background .2s, transform .2s; }
+    .login:hover { background: #ffffff38; transform: translateY(-2px); }
+    :is(a, button):focus-visible { outline: 3px solid white; outline-offset: 5px; }
+    .hint { margin-top: 15px; font-size: 12px; color: #e0e6f5; }
+    footer { text-align: center; font-size: 11px; color: #e0e6f5; letter-spacing: .04em; padding-bottom: 6px; }
+    @media (max-width: 480px) { .screen { padding: 18px; } .clock { margin-top: 50px; } .profile { padding: 40px 0; } .avatar { width: 88px; height: 88px; } }
+    @media (prefers-reduced-motion: reduce) { .login { transition: none; } .login:hover { transform: none; } }
+  </style>
+</head>
+<body>
+  <main class="screen">
+    <header><span class="brand">qwerOS</span><nav class="languages" aria-label="語言 / Language"><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="zh-TW" aria-pressed="true">TW</button></nav></header>
+    <div class="clock"><div class="date" id="date"></div><time class="time" id="time"></time></div>
+    <section class="profile" aria-labelledby="name">
+      <img class="avatar" src="/assets/images/profile-professional.jpg" alt="Portrait of Mike Liu" width="100" height="100">
+      <h1 id="name">Mike Liu</h1><p class="role">Senior Product Manager</p>
+      <a class="login" href="/en/resume/" id="login"><span id="login-label">Log in</span><span aria-hidden="true">→</span></a>
+      <p class="hint" id="hint">Log in to explore my résumé</p>
+    </section>
+    <footer id="footer">Welcome to Mike’s personal workspace</footer>
+  </main>
+  <script>
+    let locale = 'zh-TW';
+    const copy = {
+      'zh-TW': { title: 'Mike Liu · qwerOS 登入預覽', login: '登入', hint: '點選登入，探索我的履歷', footer: '歡迎來到 Mike 的個人工作空間', avatar: 'Mike Liu 的照片', route: '/resume/' },
+      en: { title: 'Mike Liu · qwerOS Login Preview', login: 'Log in', hint: 'Log in to explore my résumé', footer: 'Welcome to Mike’s personal workspace', avatar: 'Portrait of Mike Liu', route: '/en/resume/' }
+    };
+    function updateClock() {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Taipei' };
+      document.getElementById('date').textContent = new Intl.DateTimeFormat(locale, { ...options, month: 'long', day: 'numeric', weekday: 'long' }).format(now);
+      const clock = document.getElementById('time');
+      clock.textContent = new Intl.DateTimeFormat('en-GB', { ...options, hour: '2-digit', minute: '2-digit', hour12: false }).format(now);
+      clock.dateTime = now.toISOString();
+    }
+    document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => {
+      locale = button.dataset.lang;
+      const text = copy[locale];
+      document.documentElement.lang = locale;
+      document.title = text.title;
+      document.getElementById('login-label').textContent = text.login;
+      document.getElementById('login').href = text.route;
+      document.getElementById('hint').textContent = text.hint;
+      document.getElementById('footer').textContent = text.footer;
+      document.querySelector('.avatar').alt = text.avatar;
+      document.querySelectorAll('[data-lang]').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.lang === locale)));
+      updateClock();
+    }));
+    document.querySelector('[data-lang="en"]').click();
+    updateClock();
+    setInterval(updateClock, 10000);
+  </script>
+</body>
+</html>

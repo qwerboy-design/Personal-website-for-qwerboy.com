@@ -2,6 +2,23 @@
 
 本文件說明如何將個人網站部署到 GitHub Pages 並透過 Cloudflare 設定為 qwerboy.com 的首頁。
 
+## 🚨 故障排查優先順序
+
+當 `qwerboy.com` 失效時，先不要直接懷疑前端程式。請先執行：
+
+```bash
+bash scripts/check_site_health.sh
+```
+
+若結果顯示：
+
+- `qwerboy.com` / `www.qwerboy.com` 無法解析
+- 但 GitHub Pages bypass 對 `185.199.108.153` 到 `185.199.111.153` 仍回 `HTTP 200`
+
+代表靜態網站本體仍在 GitHub Pages，優先修復 Cloudflare DNS，不要先改 `index.html` 或 `js/script.js`。
+
+本次實際修復案例可參考：[docs/qwerboy-com-outage-2026-05-19.md](docs/qwerboy-com-outage-2026-05-19.md)
+
 ## 📋 前置需求
 
 1. **GitHub 帳號**：如果還沒有，請到 [GitHub](https://github.com) 註冊
@@ -14,7 +31,7 @@
 
 1. 登入 GitHub，點擊右上角的 **+** → **New repository**
 2. Repository 設定：
-   - **Repository name**: `2026-personal-website` (或您喜歡的名稱)
+   - **Repository name**: `Personal-website-for-qwerboy.com`
    - **Description**: `Personal website for qwerboy.com`
    - **Visibility**: 選擇 **Public**（GitHub Pages 免費方案需要 Public repository）
    - **不要**勾選 "Initialize this repository with a README"（因為我們已經有檔案了）
@@ -22,13 +39,11 @@
 
 ### 步驟 2: 推送程式碼到 GitHub
 
-在終端機執行以下指令（將 `YOUR_USERNAME` 替換為您的 GitHub 使用者名稱）：
+在終端機執行以下指令：
 
 ```bash
 # 添加遠端 repository
-# 例如：如果您的 GitHub 帳號是 qwerboy，則使用：
-# git remote add origin https://github.com/qwerboy/2026-personal-website.git
-git remote add origin https://github.com/YOUR_USERNAME/2026-personal-website.git
+git remote add origin https://github.com/qwerboy-design/Personal-website-for-qwerboy.com.git
 
 # 推送程式碼
 git branch -M main
@@ -42,7 +57,7 @@ git push -u origin main
 
 如果遇到認證問題，您可能需要：
 - 使用 Personal Access Token（GitHub Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token）
-- 或使用 SSH 方式：`git@github.com:YOUR_USERNAME/2026-personal-website.git`
+- 或使用 SSH 方式：`git@github.com:qwerboy-design/Personal-website-for-qwerboy.com.git`
 
 ### 步驟 3: 啟用 GitHub Pages
 
@@ -69,7 +84,7 @@ git push -u origin main
 
 1. 等待 1-2 分鐘讓 GitHub Pages 完成首次部署
 2. 在 **Settings** → **Pages** 頁面，您應該會看到：
-   - **Your site is live at**: `https://YOUR_USERNAME.github.io/2026-personal-website/`
+   - **Your site is live at**: `https://qwerboy-design.github.io/Personal-website-for-qwerboy.com/`
 3. 訪問該 URL 確認網站正常運作
 
 ### 步驟 4: 在 Cloudflare 設定自訂域名
@@ -97,7 +112,7 @@ GitHub Pages 使用以下 IP 位址（選擇其中一組即可）：
 
 **選項 B：使用 CNAME Record（僅支援子域名，不支援根域名）**
 ```
-YOUR_USERNAME.github.io
+qwerboy-design.github.io
 ```
 
 #### 4.3 在 Cloudflare 設定 DNS 記錄
@@ -121,11 +136,9 @@ YOUR_USERNAME.github.io
 
 | Type | Name | Target | Proxy status | TTL |
 |------|------|--------|--------------|-----|
-| CNAME | www | YOUR_USERNAME.github.io | Proxied (橘色雲朵) | Auto |
+| CNAME | www | qwerboy-design.github.io | Proxied (橘色雲朵) | Auto |
 
-**說明**：`YOUR_USERNAME.github.io` 需要替換為您的實際 GitHub 使用者名稱。
-- 例如：如果您的 GitHub 帳號是 `qwerboy`，則填入 `qwerboy.github.io`
-- 您可以在 GitHub 右上角點擊頭像，查看您的使用者名稱
+**說明**：本 repo 目前應直接指向 `qwerboy-design.github.io`。
 
 **重要說明：**
 - **Proxy status** 必須設為 **Proxied**（橘色雲朵圖示），這樣才能使用 Cloudflare 的 CDN 和 SSL
@@ -178,6 +191,18 @@ YOUR_USERNAME.github.io
    - `https://www.qwerboy.com`（如果設定了 www）
 3. 檢查 HTTPS 憑證是否正確安裝（瀏覽器應該顯示鎖頭圖示）
 4. 確認網站內容正確顯示
+
+### 緊急復原：當 DNS 記錄遺失時
+
+若 Cloudflare zone 內只剩 `www -> qwerboy.com`，但根網域 `@` 的 `A` 記錄消失，`qwerboy.com` 與 `www.qwerboy.com` 都會一起失效。請至少恢復以下五筆：
+
+| Type | Name | Content | Proxy status | TTL |
+|------|------|---------|--------------|-----|
+| A | @ | 185.199.108.153 | Proxied | Auto |
+| A | @ | 185.199.109.153 | Proxied | Auto |
+| A | @ | 185.199.110.153 | Proxied | Auto |
+| A | @ | 185.199.111.153 | Proxied | Auto |
+| CNAME | www | qwerboy-design.github.io | Proxied | Auto |
 
 ## 🔄 持續部署（CI/CD）
 
@@ -253,7 +278,7 @@ A: 請確認：
 部署完成後，請確認：
 
 - [ ] GitHub repository 已建立並推送程式碼
-- [ ] GitHub Pages 已啟用並可訪問（`https://YOUR_USERNAME.github.io/...`）
+- [ ] GitHub Pages 已啟用並可訪問（`https://qwerboy-design.github.io/Personal-website-for-qwerboy.com/`）
 - [ ] Cloudflare 已添加 `qwerboy.com` 域名
 - [ ] DNS 記錄已正確設定（4 個 A Record 或 CNAME）
 - [ ] Proxy status 設為 Proxied（橘色雲朵）

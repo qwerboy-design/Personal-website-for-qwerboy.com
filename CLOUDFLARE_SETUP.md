@@ -54,15 +54,12 @@ TTL: Auto
 ```
 Type: CNAME
 Name: www
-Target: YOUR_USERNAME.github.io  (例如：如果您的 GitHub 帳號是 qwerboy，則填入 qwerboy.github.io)
+Target: qwerboy-design.github.io
 Proxy status: Proxied (橘色雲朵)
 TTL: Auto
 ```
 
-**說明**：`YOUR_USERNAME.github.io` 需要替換為您的實際 GitHub 使用者名稱。
-- 例如：如果您的 GitHub 帳號是 `qwerboy`，則填入 `qwerboy.github.io`
-- 例如：如果您的 GitHub 帳號是 `mikeliou`，則填入 `mikeliou.github.io`
-- 您可以在 GitHub 右上角點擊頭像，查看您的使用者名稱
+**說明**：本 repo 目前對應的 GitHub Pages 目標請使用 `qwerboy-design.github.io`。
 
 ### 步驟 4: 設定 SSL/TLS
 
@@ -80,10 +77,11 @@ TTL: Auto
 | A | @ | 185.199.109.153 | 🟠 Proxied |
 | A | @ | 185.199.110.153 | 🟠 Proxied |
 | A | @ | 185.199.111.153 | 🟠 Proxied |
-| CNAME | www | YOUR_USERNAME.github.io | 🟠 Proxied |
+| CNAME | www | qwerboy-design.github.io | 🟠 Proxied |
 
 ## ⚠️ 重要提醒
 
 1. **Proxy status 必須是 Proxied（橘色雲朵）**，不是 DNS only（灰色雲朵）
 2. 設定完成後等待 5-30 分鐘讓 DNS 傳播
 3. 使用 [dnschecker.org](https://dnschecker.org) 檢查 DNS 傳播狀態
+4. 若 `qwerboy.com` 與 `www.qwerboy.com` 都無法解析，但 `curl --resolve qwerboy.com:443:185.199.108.153 https://qwerboy.com/` 仍可回 `200`，代表 GitHub Pages 還活著，優先修復 Cloudflare DNS 記錄即可

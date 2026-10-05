@@ -41,3 +41,6 @@ yarn-error.log*
 M.pdf
 resume_content.txt
 read_pdf.py
+
+# Generated public deployment artifact
+.site-build/

@@ -2,7 +2,11 @@
 
 **🌐 [qwerboy.com](https://qwerboy.com)**
 
-> 劉祥弘個人品牌網站 - 採用混合式 Spatial Bento 設計系統，結合報紙美學與現代科技感互動。
+> 劉祥弘（Mike Liu）｜資深產品經理 Senior Product Manager。qwerOS 互動桌面與完整雙語靜態作品集。
+
+目前 qwerOS 的內容、URL、語系與部署規則請見 [P0／P1 調整紀錄](docs/qweros-p0-p1.md)。先執行 `node scripts/build_static.mjs`，再以 `python3 -m http.server 8000 --directory .site-build` 預覽公開部署版本。EN／TW 按鈕切換 `/en/...` 與中文頁面；關閉 JS 仍可閱讀核心內容。下方 Bento 設計章節保留為原版背景。12 個專案簡介與來源核對見 [作品集專案來源掃描](docs/project-source-audit.md)。
+
+macOS 風格登入畫面：[`/login/`](https://qwerboy.com/login/) 與 [`/en/login/`](https://qwerboy.com/en/login/)。登入按鈕導向相同語系履歷頁，不要求帳號或密碼。設計與生成素材說明見 [登入預覽](docs/design/macos-login-preview/README.md)。
 
 [![Live Demo](https://img.shields.io/badge/demo-live-success)](https://qwerboy.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -68,8 +72,8 @@
 
 1. **Clone 專案**
 ```bash
-git clone https://github.com/qwerboy/2026-personal-website.git
-cd 2026-personal-website
+git clone https://github.com/qwerboy-design/Personal-website-for-qwerboy.com.git
+cd Personal-website-for-qwerboy.com
 ```
 
 2. **啟動伺服器**
@@ -79,6 +83,18 @@ python -m http.server 8000
 
 3. **訪問頁面**
 開啟瀏覽器訪問 `http://localhost:8000`
+
+### 公開站檢查
+
+若 `qwerboy.com` 對外失效，可先執行：
+
+```bash
+bash scripts/check_site_health.sh
+```
+
+這會檢查目前 DNS、HTTPS 與 GitHub Pages bypass 狀態，協助快速判斷是前端壞掉還是 Cloudflare / GitHub Pages 設定漂移。
+
+檢查腳本位於 [scripts/check_site_health.sh](scripts/check_site_health.sh)。
 
 ## 授權條款
 
