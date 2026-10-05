@@ -172,9 +172,9 @@ for (const locale of locales) {
     }
 }
 // Public deployment allowlist. Never upload the repository root or job application documents.
-const publicAssets = [...new Set([content.person.resumePdf, 'assets/images/wallpaper-login.png', 'assets/images/profile-professional.jpg', 'assets/favicon/favicon-32x32.png', 'assets/favicon/apple-touch-icon.png', ...content.photoAssets.map(photo => photo.src), ...['ivory','midnight','jade'].map(theme => `assets/images/wallpaper-${theme}.png`)])];
+const publicAssets = [...new Set([content.person.resumePdf, 'assets/animations/macos-boot-4k.webm', 'assets/animations/macos-boot-4k.gif', 'assets/images/macos-boot-poster.jpg', 'assets/images/wallpaper-login.png', 'assets/images/profile-professional.jpg', 'assets/favicon/favicon-32x32.png', 'assets/favicon/apple-touch-icon.png', ...content.photoAssets.map(photo => photo.src), ...['ivory','midnight','jade'].map(theme => `assets/images/wallpaper-${theme}.png`)])];
 for (const asset of publicAssets) {
-    if (!/^assets\/(?:images|favicon|downloads)\/[a-zA-Z0-9_-]+\.(?:png|jpg|pdf)$/.test(asset)) throw new Error(`Unexpected public asset: ${asset}`);
+    if (!/^assets\/(?:animations|images|favicon|downloads)\/[a-zA-Z0-9_-]+\.(?:webm|gif|png|jpg|pdf)$/.test(asset)) throw new Error(`Unexpected public asset: ${asset}`);
     await mkdir(path.dirname(path.join(buildDir, asset)), {recursive: true});
     await cp(path.join(root, asset), path.join(buildDir, asset));
 }

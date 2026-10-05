@@ -31,9 +31,16 @@ test('artifact includes PDF and crawler files, excludes private drafts and tooli
 });
 test('public login routes include generated wallpaper and localized resume navigation', () => {
   assert.ok(fs.existsSync('.site-build/assets/images/wallpaper-login.png'));
+  assert.ok(fs.existsSync('.site-build/assets/images/macos-boot-poster.jpg'));
+  assert.ok(fs.existsSync('.site-build/assets/animations/macos-boot-4k.webm'));
+  assert.ok(fs.existsSync('.site-build/assets/animations/macos-boot-4k.gif'));
   for (const locale of ['', 'en/']) {
     const html = fs.readFileSync(`.site-build/${locale}login/index.html`, 'utf8');
     assert.match(html, /\/assets\/images\/wallpaper-login\.png/);
+    assert.match(html, /poster="\/assets\/images\/macos-boot-poster\.jpg"/);
+    assert.match(html, /\/assets\/animations\/macos-boot-4k\.webm/);
+    assert.match(html, /data-src="\/assets\/animations\/macos-boot-4k\.gif"/);
+    assert.match(html, /id="skip-boot"/);
     assert.match(html, /\/assets\/images\/profile-professional\.jpg/);
     assert.ok(html.includes(`href="/${locale}resume/"`));
     assert.match(html, /route: '\/en\/resume\/'/);

@@ -26,11 +26,27 @@
     :is(a, button):focus-visible { outline: 3px solid white; outline-offset: 5px; }
     .hint { margin-top: 15px; font-size: 12px; color: #e0e6f5; }
     footer { text-align: center; font-size: 11px; color: #e0e6f5; letter-spacing: .04em; padding-bottom: 6px; }
+    .boot-overlay { display: none; position: fixed; inset: 0; z-index: 100; place-items: center; overflow: hidden; background: #000; }
+    .boot-overlay video, .boot-overlay .boot-fallback { width: 100%; height: 100%; object-fit: cover; }
+    /* Match the poster to the video's cover crop so the glow follows the logo on every screen. */
+    .boot-overlay::after { content: ""; position: absolute; inset: 0; background: url('/assets/images/macos-boot-poster.jpg') center / cover no-repeat; filter: blur(12px); mix-blend-mode: screen; opacity: .65; pointer-events: none; animation: boot-logo-glow 3.2s ease-in-out infinite; }
+    @keyframes boot-logo-glow { 0%, 100% { opacity: .45; } 50% { opacity: .95; } }
+    .boot-fallback[hidden] { display: none; }
+    .boot-overlay button { position: absolute; z-index: 1; right: 28px; bottom: 28px; border: 1px solid #ffffff55; background: #ffffff22; backdrop-filter: blur(14px); color: white; }
+    body.boot-enabled .boot-overlay { display: grid; }
+    body.boot-finished .boot-overlay { display: grid; opacity: 0; pointer-events: none; transition: opacity .6s ease; }
     @media (max-width: 480px) { .screen { padding: 18px; } .clock { margin-top: 50px; } .profile { padding: 40px 0; } .avatar { width: 88px; height: 88px; } }
-    @media (prefers-reduced-motion: reduce) { .login { transition: none; } .login:hover { transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .boot-overlay::after { animation: none; } .login { transition: none; } .login:hover { transform: none; } body.boot-finished .boot-overlay { transition: none; } }
   </style>
 </head>
 <body>
+  <div class="boot-overlay" id="boot-overlay" aria-hidden="true">
+    <video id="boot-video" autoplay muted playsinline preload="metadata" poster="/assets/images/macos-boot-poster.jpg" aria-hidden="true">
+      <source src="/assets/animations/macos-boot-4k.webm" type="video/webm">
+    </video>
+    <img class="boot-fallback" id="boot-gif-fallback" data-src="/assets/animations/macos-boot-4k.gif" alt="" hidden>
+    <button type="button" id="skip-boot">略過動畫</button>
+  </div>
   <main class="screen">
     <header><span class="brand">qwerOS</span><nav class="languages" aria-label="語言 / Language"><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="zh-TW" aria-pressed="true">TW</button></nav></header>
     <div class="clock"><div class="date" id="date"></div><time class="time" id="time"></time></div>
@@ -69,6 +85,50 @@
       document.querySelectorAll('[data-lang]').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.lang === locale)));
       updateClock();
     }));
+    const overlay = document.getElementById('boot-overlay');
+    const bootVideo = document.getElementById('boot-video');
+    const bootGifFallback = document.getElementById('boot-gif-fallback');
+    const skipBoot = document.getElementById('skip-boot');
+    const bootDuration = 5000;
+    let bootFinished = false;
+    let bootSeen = false;
+    try {
+      bootSeen = sessionStorage.getItem('qweros-boot-seen') === '1';
+      if (new URLSearchParams(window.location.search).has('replay')) {
+        bootSeen = false;
+        sessionStorage.removeItem('qweros-boot-seen');
+      }
+    } catch {}
+    const finishBoot = () => {
+      if (bootFinished) return;
+      bootFinished = true;
+      bootVideo.pause();
+      document.body.classList.remove('boot-enabled');
+      document.body.classList.add('boot-finished');
+      overlay.setAttribute('aria-hidden', 'true');
+      try { sessionStorage.setItem('qweros-boot-seen', '1'); } catch {}
+    };
+    const showGifFallback = () => {
+      bootVideo.hidden = true;
+      bootGifFallback.src = bootGifFallback.dataset.src;
+      bootGifFallback.hidden = false;
+    };
+    const startBootVideo = () => {
+      if (!bootVideo.canPlayType('video/webm')) {
+        showGifFallback();
+        return;
+      }
+      bootVideo.playbackRate = 8000 / bootDuration;
+      const playback = bootVideo.play();
+      if (playback && typeof playback.catch === 'function') playback.catch(showGifFallback);
+    };
+    skipBoot.addEventListener('click', finishBoot);
+    if (!bootSeen && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.body.classList.add('boot-enabled');
+      overlay.setAttribute('aria-hidden', 'false');
+      startBootVideo();
+      window.setTimeout(finishBoot, bootDuration);
+    }
     document.querySelector('[data-lang="en"]').click();
     updateClock();
     setInterval(updateClock, 10000);

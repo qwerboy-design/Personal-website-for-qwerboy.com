@@ -4,6 +4,8 @@
 
 TW 登入前往 `/resume/`，EN 前往 `/en/resume/`，由既有 qwerOS 顯示履歷。登入為公開作品集導覽，不收取帳號或密碼。日期時間以 Asia/Taipei 顯示。
 
+登入頁首次進入會優先播放 `assets/animations/macos-boot-4k.webm` 約 5 秒（原 8 秒影片以 1.6 倍速播放），`assets/animations/macos-boot-4k.gif` 作為備援，並以 `assets/images/macos-boot-poster.jpg` 先行顯示畫面。APPLE 標誌疊加白色柔光，每 3.2 秒緩慢呼吸一次；柔光沿用海報圖並與影片採相同裁切，支援桌面、手機與 GIF 備援。可按「略過動畫」，同一個瀏覽器工作階段只播放一次。加入 `?replay=1` 可重新播放；若使用者開啟 `prefers-reduced-motion`，會直接顯示登入畫面。
+
 `macos-login-4k.png` 是 1920×1080 CSS viewport、2×像素密度的 3840×2160 完整畫面截圖。桌布使用內建 image_gen 生成，原始 1672×941；無法選擇或核實 GPT-Images 2.5，桌布不是原生 4K。真人照片沿用既有 `assets/images/profile-professional.jpg`。
 
 生成 prompt：
