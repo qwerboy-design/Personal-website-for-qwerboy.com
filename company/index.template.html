@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}" data-theme="ivory">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#182337">
+<title>Qwerboy — AI products for healthcare and travel | Taipei, Taiwan</title>
+<meta name="description" content="Qwerboy is an early-stage software startup in Taipei, Taiwan, building AI products: Health-Care-Assistant and FlightBot. Founded by Hsiang-Hung (Mike) Liu.">
+<link rel="canonical" href="{{CANONICAL}}">
+<link rel="alternate" hreflang="en" href="https://qwerboy.com/en/">
+<link rel="alternate" hreflang="zh-TW" href="https://qwerboy.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Qwerboy — AI products for healthcare and travel">
+<meta property="og:description" content="Early-stage software startup in Taipei, Taiwan. Products: Health-Care-Assistant and FlightBot.">
+<meta property="og:url" content="https://qwerboy.com/">
+<link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qwerboy.com/#org","name":"Qwerboy","url":"https://qwerboy.com/","logo":"https://qwerboy.com/assets/favicon/apple-touch-icon.png","email":"mike.liu@qwerboy.com","address":{"@type":"PostalAddress","addressLocality":"Taipei","addressCountry":"TW"},"founder":{"@type":"Person","name":"Hsiang-Hung (Mike) Liu","alternateName":"劉祥弘","url":"https://qwerboy.com/mike"},"sameAs":["https://github.com/qwerboy-design"]},{"@type":"SoftwareApplication","name":"Health-Care-Assistant","applicationCategory":"HealthApplication","url":"https://hca.qwerboy.com","publisher":{"@id":"https://qwerboy.com/#org"}},{"@type":"SoftwareApplication","name":"FlightBot","applicationCategory":"TravelApplication","publisher":{"@id":"https://qwerboy.com/#org"}}]}</script>
+<style>
+:root{--ink:#16233a;--muted:#59677d;--accent:#2164cd;--line:#dbe3ee;--bg:#edf3fa;--paper:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",sans-serif;color:var(--ink);background:var(--bg) url('/assets/images/wallpaper-ivory.png') center/cover fixed;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:24px}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:rgba(240,248,255,.75);backdrop-filter:blur(20px);border-radius:14px;border:1px solid rgba(255,255,255,.5)}
+.brand{display:flex;gap:10px;align-items:center;font-weight:700;font-size:20px;color:var(--ink);text-decoration:none}
+.brand img{width:28px;height:28px}
+nav a{color:var(--ink);text-decoration:none;margin-left:16px;font-size:14px}
+nav a:hover{color:var(--accent)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px 32px;margin-top:20px;box-shadow:0 24px 64px rgba(24,52,88,.12)}
+h1{font-size:38px;line-height:1.2;margin:0 0 8px}
+h2{font-size:22px;margin:0 0 12px}
+h3{font-size:18px;margin:0 0 4px}
+.zh{color:var(--muted)}
+.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:13px;margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.product{border:1px solid var(--line);border-radius:12px;padding:20px;background:#f9fbfe}
+.tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:#e3edf9;color:var(--accent);margin:4px 6px 0 0}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:600;margin:12px 10px 0 0}
+.btn.alt{background:#fff;color:var(--accent);border:1px solid var(--accent)}
+a{color:var(--accent)}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:0}
+dt{font-weight:600}
+dd{margin:0}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:24px 0}
+@media(max-width:600px){h1{font-size:28px}nav a{margin-left:10px}.card{padding:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<a class="brand" href="/"><img src="/assets/favicon/favicon-32x32.png" alt="">Qwerboy</a>
+<nav aria-label="Primary"><a href="#products">Products 產品</a><a href="#team">Team 團隊</a><a href="#contact">Contact 聯絡</a><a href="/mike">Founder 創辦人</a></nav>
+</header>
+
+<section class="card">
+<p class="eyebrow">Qwerboy · Taipei, Taiwan</p>
+<h1>AI products for healthcare and everyday travel</h1>
+<p>Qwerboy is an early-stage software startup based in Taipei, Taiwan. We build AI-powered products that help people organize healthcare information safely and compare travel options more easily.</p>
+<p class="zh" lang="zh-TW">Qwerboy 是位於台灣台北的早期軟體新創，開發 AI 產品，協助使用者安全地整理醫療資訊，並更容易比較旅行選項。</p>
+<a class="btn" href="#products">Our products 我們的產品</a><a class="btn alt" href="mailto:mike.liu@qwerboy.com">mike.liu@qwerboy.com</a>
+</section>
+
+<section class="card" id="products">
+<h2>Products <span class="zh" lang="zh-TW">產品</span></h2>
+<div class="grid">
+<article class="product">
+<h3>Health-Care-Assistant</h3>
+<p>An AI health and medical-record assistant. It combines AI chat, FHIR data import and privacy (PHI) redaction to help organize healthcare information, with model selection and human review kept in the loop.</p>
+<p class="zh" lang="zh-TW">AI 健康與病歷助理。整合 AI 對話、FHIR 資料匯入與隱私（PHI）遮罩，協助整理醫療資訊，支援模型切換並保留人工審閱。</p>
+<span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">FHIR</span><span class="tag">LLM</span>
+<p><span class="tag">In development 開發中</span></p>
+<a href="https://hca.qwerboy.com">hca.qwerboy.com</a>
+</article>
+<article class="product">
+<h3>FlightBot</h3>
+<p>A flight search and monitoring bot. It combines flight search with fare organization across providers, normalizes and sorts results, and keeps price snapshots, with a Daily Watch foundation for monitoring fares.</p>
+<p class="zh" lang="zh-TW">航班搜尋與監控機器人。整合多個來源的航班搜尋與票價整理，正規化並排序結果、保存價格快照，並具備 Daily Watch 票價監控架構。</p>
+<span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">SQLite</span><span class="tag">Flight APIs</span>
+<p><span class="tag">In development 開發中</span></p>
+</article>
+</div>
+</section>
+
+<section class="card" id="team">
+<h2>Team <span class="zh" lang="zh-TW">團隊</span></h2>
+<h3>Hsiang-Hung (Mike) Liu <span class="zh" lang="zh-TW">劉祥弘</span> — Founder</h3>
+<p>Mike has 18+ years of experience in healthcare IT product management since 2008, working on HIS/LIS/EMR modernization, FHIR/HL7/REST API integration, clinical workflows and hospital delivery, and healthcare AI and automation.</p>
+<p class="zh" lang="zh-TW">創辦人劉祥弘自 2008 年起投入醫療資訊產品管理，擁有 18 年以上經驗，專長包括 HIS／LIS／EMR 現代化、FHIR／HL7／REST API 整合、臨床流程與醫院交付，以及醫療 AI 與自動化。</p>
+<a href="/mike">Founder portfolio 創辦人作品集 →</a>
+</section>
+
+<section class="card" id="contact">
+<h2>Contact <span class="zh" lang="zh-TW">聯絡我們</span></h2>
+<dl>
+<dt>Company 公司</dt><dd>Qwerboy</dd>
+<dt>Location 地點</dt><dd>Taipei, Taiwan 台灣台北</dd>
+<dt>Email 信箱</dt><dd><a href="mailto:mike.liu@qwerboy.com">mike.liu@qwerboy.com</a></dd>
+<dt>Website 網站</dt><dd><a href="https://qwerboy.com">qwerboy.com</a></dd>
+<dt>GitHub</dt><dd><a href="https://github.com/qwerboy-design">github.com/qwerboy-design</a></dd>
+</dl>
+</section>
+<footer>© Qwerboy · Taipei, Taiwan · <a href="/mike">Mike Liu</a></footer>
+</div>
+</body>
+</html>

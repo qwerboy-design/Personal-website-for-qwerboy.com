@@ -30,7 +30,7 @@ const locales = ['zh-TW', 'en'];
 const routes = ['home', 'about', 'resume', 'projects', 'contact', 'ai', 'travel', 'photos', 'coffee'];
 const escape = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const local = (value, locale) => typeof value === 'object' && value !== null && !Array.isArray(value) ? value[locale] ?? value['zh-TW'] ?? value.en ?? '' : value ?? '';
-const urlFor = (route, locale) => `${locale === 'en' ? '/en' : ''}${route === 'home' ? '/' : '/' + route}`;
+const urlFor = (route, locale) => `${locale === 'en' ? '/en' : ''}${route === 'home' ? '/mike' : '/' + route}`;
 const link = (url, label) => {
     if (!url || !/^(https?:\/\/|mailto:|\/)/.test(url)) return '';
     return `<a href="${escape(url)}">${escape(label)}</a>`;
@@ -141,7 +141,17 @@ for (const locale of locales) {
         }
     }
 }
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${allRoutes.flatMap(route => locales.map(locale => `<url><loc>${origin}${urlFor(route, locale)}</loc>${locales.map(lang => `<xhtml:link rel="alternate" hreflang="${lang}" href="${origin}${urlFor(route, lang)}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${origin}${urlFor(route, 'zh-TW')}"/></url>`)).join('\n')}\n</urlset>\n`;
+// Company homepage (Qwerboy) at / and /en/; portfolio desktop moved to /mike.
+const companyTemplate = await readFile(path.join(root, 'company/index.template.html'), 'utf8');
+for (const locale of locales) {
+    const html = companyTemplate.replaceAll('{{LANG}}', locale).replaceAll('{{CANONICAL}}', locale === 'en' ? origin + '/en/' : origin + '/');
+    for (const directory of [root, buildDir]) {
+        const destination = path.join(directory, locale === 'en' ? 'en/index.html' : 'index.html');
+        await mkdir(path.dirname(destination), { recursive: true });
+        await writeFile(destination, html);
+    }
+}
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n<url><loc>${origin}/</loc></url>\n<url><loc>${origin}/en/</loc></url>\n${allRoutes.flatMap(route => locales.map(locale => `<url><loc>${origin}${urlFor(route, locale)}</loc>${locales.map(lang => `<xhtml:link rel="alternate" hreflang="${lang}" href="${origin}${urlFor(route, lang)}"/>`).join('')}<xhtml:link rel="alternate" hreflang="x-default" href="${origin}${urlFor(route, 'zh-TW')}"/></url>`)).join('\n')}\n</urlset>\n`;
 const robots = `User-agent: *\nAllow: /\nDisallow: /docs/\nDisallow: /skills/\nSitemap: ${origin}/sitemap.xml\n`;
 for (const directory of [root, buildDir]) {
     await writeFile(path.join(directory, 'sitemap.xml'), sitemap);

@@ -4,6 +4,7 @@
         let clean = path.replace(/\/+$/, '') || '/';
         const locale = /^\/en(?:\/|$)/.test(clean) ? 'en' : 'zh-TW';
         clean = clean.replace(/^\/en(?=\/|$)/, '') || '/';
+        clean = clean.replace(/^\/mike(?=\/|$)/, '') || '/'; // portfolio desktop lives at /mike
         const apps = ['about', 'resume', 'projects', 'ai', 'travel', 'photos', 'coffee', 'contact'];
         const match = clean.match(/^\/projects\/([^/]+)$/);
         let projectSlug = null;

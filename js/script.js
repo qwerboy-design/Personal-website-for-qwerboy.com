@@ -98,7 +98,8 @@
 
     function routeUrl(path, locale = state.locale) {
         const clean = windowState.parseRoute(path, content.projects.map(p => p.slug)).path;
-        return locale === 'en' ? `/en${clean === '/' ? '/' : clean}` : clean;
+        const target = clean === '/' ? '/mike' : clean;
+        return locale === 'en' ? `/en${target}` : target;
     }
 
     function resumeContent() {

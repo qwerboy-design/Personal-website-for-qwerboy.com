@@ -5,7 +5,7 @@ const vm = require('node:vm');
 const ctx = {window:{}};
 vm.runInNewContext(fs.readFileSync('js/content.js','utf8'),ctx);
 const projects = ctx.window.QWEROS_CONTENT.projects;
-const routes = ['', 'about','resume','projects','contact','ai','travel','photos','coffee',...projects.map(p=>'projects/'+p.slug)];
+const routes = ['mike', 'about','resume','projects','contact','ai','travel','photos','coffee',...projects.map(p=>'projects/'+p.slug)];
 test('all static routes have localized metadata, readable content and resolvable assets', () => {
   for (const locale of ['', 'en/']) for (const route of routes) {
     const filename = `.site-build/${locale}${route ? route+'/' : ''}index.html`;
@@ -26,7 +26,7 @@ test('all static routes have localized metadata, readable content and resolvable
 test('artifact includes PDF and crawler files, excludes private drafts and tooling', () => {
   assert.deepEqual(fs.readFileSync('.site-build/assets/downloads/Mike.pdf'),fs.readFileSync('assets/downloads/Mike.pdf'));
   assert.match(fs.readFileSync('.site-build/robots.txt','utf8'),/Sitemap: https:\/\/qwerboy.com\/sitemap.xml/);
-  assert.equal((fs.readFileSync('.site-build/sitemap.xml','utf8').match(/<loc>/g)||[]).length,routes.length*2);
+  assert.equal((fs.readFileSync('.site-build/sitemap.xml','utf8').match(/<loc>/g)||[]).length,routes.length*2+2);
   for(const directory of ['docs','skills','tests','scripts','.git','assets/.DS_Store','assets/images/.DS_Store','assets/images/ruru-cats']) assert.equal(fs.existsSync(`.site-build/${directory}`),false);
 });
 test('public login routes include generated wallpaper and localized resume navigation', () => {
@@ -48,5 +48,14 @@ test('public login routes include generated wallpaper and localized resume navig
     assert.match(html, /route: '\/en\/resume\/'/);
     assert.ok(!html.includes('../../../'));
     if (locale) assert.match(html, /data-lang="en"\]\'\)\.click/);
+  }
+});
+test('company homepage at / and /en/ identifies Qwerboy and links to founder portfolio', () => {
+  for (const file of ['.site-build/index.html','.site-build/en/index.html']) {
+    const html = fs.readFileSync(file,'utf8');
+    assert.match(html, /"@type":"Organization"/);
+    assert.match(html, /mailto:mike.liu@qwerboy.com/);
+    assert.match(html, /href="\/mike"/);
+    for(const match of html.matchAll(/(?:src|href)="\/(?!\/)([^"?#]+)(?:[?#][^"]*)?"/g)) assert.ok(fs.existsSync(`.site-build/${match[1]}`) || fs.existsSync(`.site-build/${match[1]}/index.html`), match[1]);
   }
 });

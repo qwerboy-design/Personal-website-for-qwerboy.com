@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-<url><loc>https://qwerboy.com/</loc><xhtml:link rel="alternate" hreflang="zh-TW" href="https://qwerboy.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://qwerboy.com/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://qwerboy.com/"/></url>
-<url><loc>https://qwerboy.com/en/</loc><xhtml:link rel="alternate" hreflang="zh-TW" href="https://qwerboy.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://qwerboy.com/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://qwerboy.com/"/></url>
+<url><loc>https://qwerboy.com/</loc></url>
+<url><loc>https://qwerboy.com/en/</loc></url>
+<url><loc>https://qwerboy.com/mike</loc><xhtml:link rel="alternate" hreflang="zh-TW" href="https://qwerboy.com/mike"/><xhtml:link rel="alternate" hreflang="en" href="https://qwerboy.com/en/mike"/><xhtml:link rel="alternate" hreflang="x-default" href="https://qwerboy.com/mike"/></url>
+<url><loc>https://qwerboy.com/en/mike</loc><xhtml:link rel="alternate" hreflang="zh-TW" href="https://qwerboy.com/mike"/><xhtml:link rel="alternate" hreflang="en" href="https://qwerboy.com/en/mike"/><xhtml:link rel="alternate" hreflang="x-default" href="https://qwerboy.com/mike"/></url>
 <url><loc>https://qwerboy.com/about</loc><xhtml:link rel="alternate" hreflang="zh-TW" href="https://qwerboy.com/about"/><xhtml:link rel="alternate" hreflang="en" href="https://qwerboy.com/en/about"/><xhtml:link rel="alternate" hreflang="x-default" href="https://qwerboy.com/about"/></url>
 <url><loc>https://qwerboy.com/en/about</loc><xhtml:link rel="alternate" hreflang="zh-TW" href="https://qwerboy.com/about"/><xhtml:link rel="alternate" hreflang="en" href="https://qwerboy.com/en/about"/><xhtml:link rel="alternate" hreflang="x-default" href="https://qwerboy.com/about"/></url>
 <url><loc>https://qwerboy.com/resume</loc><xhtml:link rel="alternate" hreflang="zh-TW" href="https://qwerboy.com/resume"/><xhtml:link rel="alternate" hreflang="en" href="https://qwerboy.com/en/resume"/><xhtml:link rel="alternate" hreflang="x-default" href="https://qwerboy.com/resume"/></url>
